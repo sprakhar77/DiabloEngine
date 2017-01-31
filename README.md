@@ -1,8 +1,4 @@
-# CHESS-ENGINE
-this is a chess eninge made in c++ ...it is an artificial intellegent
-system which will play a game of chess wtith you or any other engine
-when linked to a GUI which follows UCI protocols such as Arena..
-it searches the best move with the help of alphabeta search
-with the iterative deepning method...wiht basic evaluation
-functions so its effecieny is partially dependent on your system speed
-...try to beat it !
+# Chess Engine
+This project is based on artificial intelligence. It is a bot which plays chess against you or
+any other bot when you link it to a GUI such as arena which follows UCI protocols. It has a basic evaluation function to go to certain depths in the game and find the best move with the help of alphabeta search function. It also uses the iterative deepening method to find the best move so the depth of search will be slightly better on a fast system.
+
