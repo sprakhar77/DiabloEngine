@@ -1,2 +1,2 @@
-just compile with the makefile to get a.out
+Just compile with the makefile to get a.out
 
