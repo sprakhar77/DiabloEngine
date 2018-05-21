@@ -1,4 +1,4 @@
-# Chess Engine
+## Overview
 Hi all, in this post I will be explaining the code of the Diablo Chess Engine which I made while learning about artificial intelligence and game bots. This post also serves as the documentation for the code of Diablo Chess Engine
 
 I would recommend opening the code side by side to understand this documentation. In this explanation I will explain every file of the code of  Diablo Chess Engine .
