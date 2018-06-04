@@ -723,7 +723,8 @@ now say white is getting a mate after 3 steps so it must avoid this path at all 
 #### static int Quiescence(int Alpha,int Beta,BOARD *board,SEARCHINFO *info)
 this search is added to improve the way the engine plays to improve its game
 
-
-
-
+## Screenshots
+Here are a few screenshots when the AI is attached to Arena(A chess GUI that follows UCI protocols)
+<image src = "Screenshots/1.jpg" width = 800>
+<image src = "Screenshots/2.png" width = 800>
 
