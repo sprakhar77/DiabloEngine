@@ -3,6 +3,8 @@ Hi all, in this post I will be explaining the code of the Diablo Chess Engine wh
 
 I would recommend opening the code side by side to understand this documentation. In this explanation I will explain every file of the code of  Diablo Chess Engine .
 
+The engine is inspired by the Vice chess engine series on youtube by Bluefever Software.
+
 ## Files
 I will go on describing each file and the functions in those files.
 
