@@ -112,7 +112,7 @@ void GenMoves(BOARD* board, MOVELIST* MoveList)
                 AddwPMove(board, sq, sq + 10, 0, 0, MoveList);  // This move is a simple move so no cap,prom,flag value.
             if (RankNo[sq] == RANK_2 && board->Pieces[sq + 10] == EMPTY && board->Pieces[sq + 20] == EMPTY)
                 AddMove(board,
-                        MkMove(sq, sq + 20, 0, 0, FlagPawnSt),
+                        MkMove(sq, (sq + 20), 0, 0, FlagPawnSt),
                         MoveList);  // This move is again a simple but starting.
 
             // Move for a pawns so we need to set the flag for PawnSt and so we use a normal move addition
@@ -153,7 +153,7 @@ void GenMoves(BOARD* board, MOVELIST* MoveList)
             if (board->Pieces[sq - 10] == EMPTY)
                 AddbPMove(board, sq, sq - 10, 0, 0, MoveList);
             if (RankNo[sq] == RANK_7 && board->Pieces[sq - 10] == EMPTY && board->Pieces[sq - 20] == EMPTY)
-                AddMove(board, MkMove(sq, sq - 20, 0, 0, FlagPawnSt), MoveList);
+                AddMove(board, MkMove(sq, (sq - 20), 0, 0, FlagPawnSt), MoveList);
 
             if (board->Pieces[sq - 9] != OFF && PceCol[board->Pieces[sq - 9]] == WHITE)
                 AddbPMove(board, sq, sq - 9, board->Pieces[sq - 9], 0, MoveList);
@@ -195,7 +195,7 @@ void GenMoves(BOARD* board, MOVELIST* MoveList)
                 {
                     if (board->Pieces[NewSq] != EMPTY)
                     {
-                        if (PceCol[board->Pieces[NewSq]] == Side ^ 1)
+                        if (PceCol[board->Pieces[NewSq]] == (Side ^ 1))
                             AddMove(board, MkMove(sq, NewSq, board->Pieces[NewSq], 0, 0), MoveList);
                         break;
                     }
@@ -223,7 +223,7 @@ void GenMoves(BOARD* board, MOVELIST* MoveList)
                 int NewSq = sq + Dir;
                 if (board->Pieces[NewSq] != OFF && board->Pieces[NewSq] != EMPTY)
                 {
-                    if (PceCol[board->Pieces[NewSq]] == Side ^ 1)
+                    if (PceCol[board->Pieces[NewSq]] == (Side ^ 1))
                         AddMove(board, MkMove(sq, NewSq, board->Pieces[NewSq], 0, 0), MoveList);
                 }
                 else if (board->Pieces[NewSq] != OFF && board->Pieces[NewSq] == EMPTY)
@@ -300,7 +300,7 @@ void GenCapMoves(BOARD* board, MOVELIST* MoveList)
                 {
                     if (board->Pieces[NewSq] != EMPTY)
                     {
-                        if (PceCol[board->Pieces[NewSq]] == Side ^ 1)
+                        if (PceCol[board->Pieces[NewSq]] == (Side ^ 1))
                             AddMove(board, MkMove(sq, NewSq, board->Pieces[NewSq], 0, 0), MoveList);
                         break;
                     }
@@ -326,7 +326,7 @@ void GenCapMoves(BOARD* board, MOVELIST* MoveList)
                 int NewSq = sq + Dir;
                 if (board->Pieces[NewSq] != OFF && board->Pieces[NewSq] != EMPTY)
                 {
-                    if (PceCol[board->Pieces[NewSq]] == Side ^ 1)
+                    if (PceCol[board->Pieces[NewSq]] == (Side ^ 1))
                         AddMove(board, MkMove(sq, NewSq, board->Pieces[NewSq], 0, 0), MoveList);
                 }
             }
