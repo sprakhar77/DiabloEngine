@@ -1,5 +1,5 @@
-#include "cstdio"
-#include "cstring"
+#include "stdio.h"
+#include "string.h"
 #include "def.h"
 #define NOMOVE 0
 char START_FEN[] = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";

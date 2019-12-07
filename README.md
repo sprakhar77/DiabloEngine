@@ -229,7 +229,7 @@ typedef struct{
  float fh,fhf; }SEARCHINFO;
 ```
 
-## INIT.cpp
+## INIT.c
 This file does all our initialisation tasks, which are : –
 
 #### Convert()
@@ -269,7 +269,7 @@ this function just act to call the renaming functions
 //this is a modified rand function which generates 64 bit random numbers for our hashkey values&amp;amp;amp;nbsp;
 ```
 
-## Bitboard.cpp
+## Bitboard.c
 Tis file is just about our pawn bitboards and has the functions this file is just about our pawn bitboards and has the functions :-
 
 #### void PrintBitBoard(ULL b)
@@ -299,13 +299,13 @@ const int BitTable[64] = {
 #### int Count(ULL b)
 counts the number of set bits in a a bitboard
 
-## hashkey.cpp
+## hashkey.c
 This file is just to generate the hashkeys this file is just to generate the hash keys
 
 #### ULL GenerateHashKeys(const BOARD *board)
 This function takes in the current board status and according to the positions of pieces,Side to play,CastlePerm and the EnPas position generates the unique PosKey value by xoring  all the random 64 bit numbers for those states of piece for that board and returns it.
 
-## board.cpp
+## board.c
 This file has all the necessary functions that concern our chess board…this file has all the necessary functions that concern our chess board.
 
 #### void ResetBoard(BOARD *b)
@@ -328,12 +328,12 @@ char FileChar[]="abcdefgh";
 these arrays for easy indexing and printing using the type of pieces in the ENUM as the indexes we can effectively print them
 
 #### void UpdateMaterial(BOARD *board)
-function to update the remaining items i.e PceList,MajPce,MinPce pawn bitboards etc; once we have the board structure ready. We can easily count the number of big,maj,min,material value of pieces by simply running a loop from 0 to 120…and store the position or counts, we use various Boolean array which are defined in data.cpp which fasten our approach to see what type of a piece the piece is
+function to update the remaining items i.e PceList,MajPce,MinPce pawn bitboards etc; once we have the board structure ready. We can easily count the number of big,maj,min,material value of pieces by simply running a loop from 0 to 120…and store the position or counts, we use various Boolean array which are defined in data.c which fasten our approach to see what type of a piece the piece is
 
 #### extern int CheckBoard(BOARD *board)
 this function crosschecks everything we have done to our board so far with various assert statements…it ensure that what we have stored on the board structure is actually present in the board it is not that necessary if everything is correct but we need to be sure in such a big program, so we make a temporary arrays system which are same as those present in the board structure then using various value of board structure it cross checks other values in the board structure
 
-## data.cpp
+## data.c
 This file contains all the data declarations needed for the program this file contains all the data declarations needed for the program
 ```cpp
 char PceChar[]=".PNBRQKpnbrqk";
@@ -370,10 +370,10 @@ int IsSlide[13];
 ```
 we have defined so many array as now when we use a type of piece say wN as in index to these arrays we will get the corresponding properties for that type of piece i.e whether it is a Big,Maj,Min piece ts printing value it colour ad its Material Value. Whether it is a knight,bishop,rook or a queen…so its very helpful to do so.
 
-## ghost.cpp
+## ghost.c
 this is our main source file which will be executed and contains the main function it will call all the other remaining this is our main source file which will be executed and contains the main function .It will call all the other remaining functions and will be used for testing.
 
-## attack.cpp
+## attack.c
 
 #### int IsSqAttack(int sq,int side,BOARD *board)
 this function here checks if the current given square is attacked by any side which is specified on the  current board this is fairly easy we just need to set few arrays to mark the directions from this square from where certain types of pieces can attack such as diagonals,vertical,horizontal etc which are done by :-
@@ -402,7 +402,7 @@ extern int IsPawn[13];
  extern int IsSlide[13];
 ```
 
-## io.cpp
+## io.c
 #### void PrintSq(int sq)
 a simple function to print the file and rank of a current square using the file and rank arrays
 
@@ -412,7 +412,7 @@ simple function to print the from,to and promoted bit values of the move using f
 #### void PrintMoveList(MOVELIST *MoveList)
 again a simple function to print a move list for a given side
 
-## movegenerator.cpp
+## movegenerator.c
 Note:- remember there are only 2 move lists for a each side and not individually for each piece
 
 ```cpp
@@ -504,7 +504,7 @@ this function is the actual function to initialise the MvvLvaScores array for ev
 #### void GenCapMoves(BOARD *board,MOVELIST *MoveList)
 this is 95% same function as GenMove…but it only generates the capture move which are required in the Quiescence search function
 
-## makemove.cpp
+## makemove.c
 #### extern void RemovePiece(BOARD *board,int sq)
 change the values of the board structure when a piece is removed
 
@@ -579,14 +579,14 @@ we the nreverse the sides if it was an EnPas capture we add back the respective 
 
 finally we restore back the unique PosKey value….we do it at the last because if we did it before then the AddPieceand RemovePiece functions would have altered its value which we didn’t wanted either we can do that or we can let it be and and get back to its history value by manually xoring and with the help of add and remove functions
 
-## perftest.cpp
+## perftest.c
 ##### void PerftTest(int depth, BOARD *pos)
 this function is basically backtracking to a given depth to calculate all the valid move that can be made from a given board position it first makes one move the generate a new move list for that position and then again makes a move and makes a new list and so on till depth is 0 then it comes back one step and makes the second moves and goes on just like dfs and count the number of leaf nodes in the moves tree
 
 #### void Perft(int depth,BOARD *board)
 this is just a helper function for the above function
 
-## misc.cpp
+## misc.c
 this file contains all the misc functions this file contains all the misc functions if running the program in windows them WIN32 is defined and we get the time buy the library windows.h else if running on linux then we include sys/time.h to get the time
 ```cpp
 #ifdef WIN32
@@ -602,7 +602,7 @@ this file contains all the misc functions this file contains all the misc functi
 #### int GetTime()
 This function return the value of current time….it does not matter which system it is linux or windows we will use this when we enable the engine with the gui then it will sent us a stop interrupt then we stop the searching and make the move
 
-## pvtable.cpp
+## pvtable.c
 this file has all the functions for our principal variation tablethis file has all the functions for our principal variation table
 
 the pvtable is represented using two structure
@@ -646,7 +646,7 @@ no, we will search for every move…because although we may get a best move say 
 #### int GetPvLine(BOARD *board,int depth)
 as the name suggest we get the best pvline stored in the PvArray for a given depth but we  may also get an answer greater than the depth
 
-## evaluate.cpp
+## evaluate.c
  
 this file gives us the the score which a given move makes by calculating the sum of values  values which every pieces get at a given position for WHITE and the subtracting it with BLACK it also takes in the material value of the sides
 
@@ -697,7 +697,7 @@ and further back when the final return occurs for alpha this value again change 
 
 so we get a final value of 10 by this path which is correct as black minimises and white tries to maximise
 
-## search.cpp
+## search.c
 the actual search function for iterative deepening and alpha beta and quiescence search the actual search function for iterative deepening and alpha beta and quiescence search
 
 #define INF 30000

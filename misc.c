@@ -1,6 +1,5 @@
 #include "def.h"
-#include <cstdio>
-#include <cstring>
+#include <stdio.h>
 
 // If running the program in windows them WIN32 is defined and we get the time buy th library windows.h
 // else if running on lunix then we include sys/time.h to get the time.

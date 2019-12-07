@@ -1,7 +1,5 @@
 #include "def.h"
-#include <algorithm>
-#include <cstdio>
-using namespace std;
+#include <stdio.h>
 
 int cmp2(MOVE a, MOVE b)
 {

@@ -1,10 +1,10 @@
 #ifndef DEF
 #define DEF
 #define SQNO 120
-#define NAME "EzIo"    // Name of the engine.
+#define NAME "Diablo"    // Name of the engine.
 #define MAXMOVES 2048  // Maxium number of half moves that can happen in a game.
 #define MAXDEPTH 64
-#include <cstdlib>
+#include <stdlib.h>
 #include <stdio.h>
 #define NOMOVE 0
 
@@ -356,30 +356,30 @@ extern int IsBQ[13];
 extern int IsSlide[13];
 
 /*   FUNCTIONS   */
-// init.cpp
+// init.c
 extern void AllInit();
 
-// bitboard.cpp
+// bitboard.c
 extern void PrintBitBoard(ULL b);
 extern int POP(ULL* b);
 extern int COUNT(ULL b);
 
-// hashkey.cpp
+// hashkey.c
 extern ULL GenerateHashKeys(const BOARD* board);
 
-// board.cpp
+// board.c
 extern void ResetBoard(BOARD* board);         				// Reset the board to all 0 and initial states of emptiness.
 extern int CalcFen(char* arr, BOARD* board);  				// To set the board according to the given FEN state.
 extern void PrintBoard(BOARD* board);
 extern void UpdateMaterial(BOARD* board);  					// Update the big,min,maj and pieceList.
 extern int CheckBoard(BOARD* board);       					// This function crosscheks everthing we have done to our board so far.
 
-// attack.cpp
+// attack.c
 int IsSqAttack(int sq,
                int side,
                BOARD* board);  								// This functin checks weather a given square is attacked by a given side.
 
-// io.cpp
+// io.c
 extern void PrintSq(int sq);                        		// To print the file and rank of a given square.
 extern char* PrintMove(int move);                   		// To print the from,to and promoted move.
 extern void PrintMoveList(MOVELIST* MoveList);      		// Again a simple function to print a move list for a given piece.
@@ -387,13 +387,13 @@ extern void PrintMoveList(MOVELIST* MoveList);      		// Again a simple function
 extern int ParseMove(char* ptrChar, BOARD* board);  		// Takes in the move as files and rank and return the move in
                                                     		// integer.
 
-// movegenerator.cpp
+// movegenerator.c
 extern void GenMoves(BOARD* board, MOVELIST* MoveList);  	// Generates all the possible move for a given side movelist.
 extern int MoveExists(BOARD* board, int Move);           	// Checks if a current move existis on the board or not.
 extern void InitMvvLva();  									// This is to initialize the most valuable victim leas valuable attacker array.
 extern void GenCapMoves(BOARD* board, MOVELIST* MoveList);  // Generates all the capture moves.
 
-// makemove.cpp
+// makemove.c
 extern void RemovePiece(BOARD* board, int sq);  			// Change the values of the board structure when a piece is removed.
 extern void AddPiece(BOARD* board, int sq, int Pce);        // Opposite to removePiece.
 extern void MovePiece(BOARD* board, int from, int to);  	// Call first remove the addpiece.
@@ -401,30 +401,30 @@ extern int MakeMove(BOARD* board,
                     int Move);  							// Actually make a move on the board and do the necessary changes to board structure
 extern void TakeMove(BOARD* board);  						// Takes back the last move made.
 
-// perfttest.cpp
+// perfttest.c
 extern void PerftTest(int depth, BOARD* pos);  				// These functions are used for perft testing the correctness of
 extern void Perft(int depth, BOARD* pos);      				// The move generateor the makemove and takemove functions.
 
-// search.cpp
+// search.c
 extern int IsRepeat(BOARD* board);                      	// Checks if the position was repeated.
 extern void SearchPos(BOARD* board, SEARCHINFO* info);  	// Out iterative deepening function.
 
-// misc.cpp
+// misc.c
 extern int GetTime();  										// This function is to get the current time from the system clock.
 extern void ReadInput(SEARCHINFO* info);
 
-// pvtable.cpp
+// pvtable.c
 extern void ClearPvTable(PVTABLE* PvTable);  				// Resets the pvtable marking all to 0.
 extern void InitPvTable(PVTABLE* PvTable);   				// Initilizes the pvtable by giving it memory and clearing it initiallly.
 extern void StorePvMove(BOARD* board, int Move);  			// To store the PvMove in the hashtable.
 extern int ProbePvMove(BOARD* board);  						// To retrive the move if present for the current poskey value of the board.
 extern int GetPvLine(BOARD* board, int depth);  			// This functions give us the best set of move upto a certain depth.
 
-// evaluate.cpp
+// evaluate.c
 extern int EvalPos(BOARD* board);  							// This function give the evaluation value of the current board position from the
                                    							// sides point of view.
 
-// uci.cpp
+// uci.c
 extern void Uci_Loop(); 									// The UCI protocol infinite loop used to run the program.
 
 #endif

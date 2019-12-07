@@ -1,5 +1,5 @@
 #include "def.h"
-#include <cstdlib>
+#include <stdlib.h>
 
 ULL GenerateHashKeys(const BOARD* board)
 {

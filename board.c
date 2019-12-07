@@ -1,6 +1,6 @@
 #include "def.h"
-#include <cstdio>
-#include <cstdlib>
+#include <stdio.h>
+#include <stdlib.h>
 
 // Function to reset the entire board to 0.
 void ResetBoard(BOARD* board)

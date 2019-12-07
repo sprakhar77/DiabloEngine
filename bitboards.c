@@ -1,5 +1,5 @@
 #include "def.h"
-#include <cstdio>
+#include <stdio.h>
 
 // Simple function to print any bitboard which is sent to it. Here we revers the ranks as we in our previous
 // calculations we took the ranks in reverse order for simplicity in order for the conversions to be easy and now we

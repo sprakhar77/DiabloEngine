@@ -1,5 +1,5 @@
 #include "def.h"
-#include <cstdio>
+#include <stdio.h>
 
 // This function is to get the best pv line which if possible for the current board position
 // upto a certain depth.

@@ -1,5 +1,5 @@
 #include "def.h"
-#include <cstdlib>
+#include <stdlib.h>
 
 // Since our general hash function only generate random numbers upto 0 to 15 bits so to get 64 bit random numbers
 // int the second time we generatete first random 15 bits and shift them 15 to the left so the next 15 bits are filled

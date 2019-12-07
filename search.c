@@ -1,12 +1,14 @@
 #include "def.h"
-#include <algorithm>
+
 #define INF 30000
 #define MATE 29000
 
 // This function is for sorting the moves in the movelist in descending order so that we can get better ordering.
-int cmp(MOVE a, MOVE b)
+int cmp(const void* a, const void* b)
 {
-    return a.Score > b.Score;
+    int aScore = ((MOVE *)a)->Score;
+    int bScore = ((MOVE *)b)->Score;
+    return aScore > bScore;
 }
 
 // Fucntion to check up if we have run out of time and we need to make a move.
@@ -92,7 +94,7 @@ static int Quiescence(int Alpha, int Beta, BOARD* board, SEARCHINFO* info)
     }
 
     if (list->Count >= 1)
-        std::sort(list->MoveNum, list->MoveNum + list->Count, cmp);
+        qsort((void *)list->MoveNum, list->Count, sizeof(list->MoveNum[0]), cmp);
 
     for (int i = 0; i < list->Count; i++)
     {
@@ -164,7 +166,7 @@ static int AlphaBeta(int Alpha, int Beta, int Depth, BOARD* board, SEARCHINFO* i
 
     // Sort the moves in the movelist descending order of thier score for better move ordering.
     if (list->Count >= 1)
-        std::sort(list->MoveNum, list->MoveNum + list->Count, cmp);
+        qsort((void *)list->MoveNum, list->Count, sizeof(list->MoveNum[0]), cmp);
 
     int Legal = 0;
     int OldAlpha = Alpha;
